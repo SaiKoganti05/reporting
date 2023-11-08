@@ -2,6 +2,7 @@ package com.amt.reporting.model;
 
 import java.util.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -15,9 +16,11 @@ public class LeaveApplyEntity {
 	@GeneratedValue
 	private int leave_apply_id;
 	
-	private int emp_id;
+	@Column(name = "emp_id")
+	private int empId;
 	
-	private int leave_id;
+	@Column(name = "leave_id")
+	private int leaveId;
 	
 	private Date applied_on;
 	
@@ -34,19 +37,19 @@ public class LeaveApplyEntity {
 	}
 
 	public int getEmp_id() {
-		return emp_id;
+		return empId;
 	}
 
 	public void setEmp_id(int emp_id) {
-		this.emp_id = emp_id;
+		this.empId = emp_id;
 	}
 
 	public int getLeave_id() {
-		return leave_id;
+		return leaveId;
 	}
 
 	public void setLeave_id(int leave_id) {
-		this.leave_id = leave_id;
+		this.leaveId = leave_id;
 	}
 
 	public Date getApplied_on() {

@@ -1,5 +1,6 @@
 package com.amt.reporting.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -15,7 +16,8 @@ public class LeaveAllocationEntity {
 	
 	private int leave_id;
 	
-	private int band_id;
+	@Column(name = "band_id")
+	private int bandId;
 	
 	private int total_leave;
 
@@ -35,12 +37,13 @@ public class LeaveAllocationEntity {
 		this.leave_id = leave_id;
 	}
 
-	public int getBand_id() {
-		return band_id;
+	
+	public int getBandId() {
+		return bandId;
 	}
 
-	public void setBand_id(int band_id) {
-		this.band_id = band_id;
+	public void setBandId(int bandId) {
+		this.bandId = bandId;
 	}
 
 	public int getTotal_leave() {

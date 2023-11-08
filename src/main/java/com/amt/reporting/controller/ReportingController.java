@@ -12,13 +12,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.amt.reporting.model.EmployeeDetailsEntity;
+import com.amt.reporting.model.LeaveStatusDetails;
 import com.amt.reporting.model.LeaveStatusModel;
 import com.amt.reporting.service.EmployeeDetailsServiceImpl;
 
-import lombok.extern.slf4j.Slf4j;
-
 @RestController
-@Slf4j
 public class ReportingController {
 
 	@Autowired
@@ -51,8 +49,9 @@ public class ReportingController {
 	
 	@GetMapping("/getLeavestatusDetails/{id}")
 	@CrossOrigin(origins = "http://localhost:3000")
-	public ResponseEntity<LeaveStatusModel> getLeaveStatusDetails(@PathVariable String id) {
-		return null;
+	public ResponseEntity<LeaveStatusDetails> getLeaveStatusDetails(@PathVariable String id) {
+		LeaveStatusModel leaveModel =  employeeDetailsServiceImpl.getLeaveStatusInfo(id);
+		return new ResponseEntity<>(employeeDetailsServiceImpl.convert(leaveModel),HttpStatus.OK);
 	}
 
 }
